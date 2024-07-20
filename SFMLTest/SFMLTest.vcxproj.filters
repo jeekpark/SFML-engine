@@ -19,11 +19,11 @@
     <Filter Include="소스 파일\Core">
       <UniqueIdentifier>{bb352441-e0bf-4b08-9ea4-5d51ec135ab2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Actor">
-      <UniqueIdentifier>{16279580-0ee2-4a4e-a20d-0b657ed11475}</UniqueIdentifier>
+    <Filter Include="헤더 파일\Component">
+      <UniqueIdentifier>{046e9c3f-13a7-4468-91c1-aac986d99303}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Actor">
-      <UniqueIdentifier>{73c0ef94-8d93-4269-83d7-792f9c6f3a07}</UniqueIdentifier>
+    <Filter Include="소스 파일\Component">
+      <UniqueIdentifier>{0adeb81f-e4c8-4a4e-94af-551b2a93aff3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -39,6 +39,12 @@
     <ClCompile Include="MainMenuLevel.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>소스 파일\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformComponent.cpp">
+      <Filter>소스 파일\Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -52,6 +58,15 @@
     </ClInclude>
     <ClInclude Include="MainMenuLevel.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="IComponent.h">
+      <Filter>헤더 파일\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformComponent.h">
+      <Filter>헤더 파일\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>헤더 파일\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
