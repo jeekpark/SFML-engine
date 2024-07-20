@@ -1,9 +1,11 @@
 #include "Engine.h"
 
+#include "MainMenuLevel.h"
+
 Engine::Engine()
     : mWindow(sf::VideoMode(1280, 720), "TEST", sf::Style::Titlebar | sf::Style::Close)
 {
-    mCurrentLevel = new Level();
+    mCurrentLevel = new MainMenuLevel();
 }
 
 void Engine::Run()
@@ -20,9 +22,13 @@ void Engine::Run()
 
 void Engine::processEvents() {
     sf::Event event;
-    while (mWindow.pollEvent(event)) {
+    while (mWindow.pollEvent(event))
+    {
         if (event.type == sf::Event::Closed)
+        {
             mWindow.close();
+        }
+        mCurrentLevel->ProcessEvent(event);
     }
 }
 

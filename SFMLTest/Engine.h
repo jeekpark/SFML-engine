@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "Level.h"
+#include "ILevel.h"
 
 class Engine
 {
@@ -16,7 +16,7 @@ private:
     void render();
 
     sf::RenderWindow mWindow;
-    Level* mCurrentLevel;
+    ILevel* mCurrentLevel;
 
 };
 

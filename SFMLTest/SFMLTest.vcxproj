@@ -133,18 +133,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Actor.cpp" />
-    <ClCompile Include="Component.cpp" />
     <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenuLevel.cpp" />
     <ClCompile Include="UserData.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Actor.h" />
-    <ClInclude Include="Component.h" />
     <ClInclude Include="Engine.h" />
-    <ClInclude Include="Level.h" />
+    <ClInclude Include="ILevel.h" />
+    <ClInclude Include="MainMenuLevel.h" />
     <ClInclude Include="UserData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
