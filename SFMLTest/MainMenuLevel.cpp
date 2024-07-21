@@ -1,21 +1,29 @@
 #include "MainMenuLevel.h"
+#include <iostream>
+#include "TransformComponent.h"
+MainMenuLevel::MainMenuLevel()
+{
+    mTestActor.SetLevel(this);
+    mTestActor.AddComponent(new TransformComponent());
+    mTestActor.GetComponent<TransformComponent>()->SetPosition(sf::Vector2f(10.f, 20.f));
+}
 
-MainMenuLevel::MainMenuLevel(Game* gamePTR) : ALevel(gamePTR)
+MainMenuLevel::~MainMenuLevel()
 {
 
 }
 
-void MainMenuLevel::HandleEvent(const sf::Event& event)
+void MainMenuLevel::ProcessEvent(const sf::Event& event)
 {
-
+    mTestActor.ProcessEvent(event);
 }
 
-void MainMenuLevel::Update(sf::Time deltaTIme)
+void MainMenuLevel::Update(const sf::Time& deltaTime)
 {
-
+    mTestActor.Update(deltaTime);
 }
 
-void MainMenuLevel::Draw(sf::RenderWindow& window)
+void MainMenuLevel::Render(sf::RenderWindow& window)
 {
-
+    mTestActor.Render(window);
 }

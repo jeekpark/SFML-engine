@@ -2,31 +2,42 @@
 
 #include <vector>
 #include <memory>
+#include <typeindex>
+#include <unordered_map>
+
+#include <SFML/Graphics.hpp>
+
 #include "IComponent.h"
+
+class ILevel;
 
 class Actor
 {
 public:
-    template<class T, class... Args>
-    T* AddComponent(Args&&... args)
-    {
-        static_assert(std::is_base_of<IComponent, T>::value);
-        std::unique_ptr<T> component = std::make_unique<T>(std::forward<Args>(args)...);
-        T* componentPTR = component.get();
-        mComponents.push_back(std::move(component));
-        return componentPTR;
-    }
+    Actor();
+    ~Actor();
 
-    void Update()
-    {
-        for (auto& component : mComponents)
-        {
-            component->Update(3.f);
-        }
-    }
-
+    void ProcessEvent(const sf::Event& event);
+    void Update(const sf::Time& deltaTime);
     void Render(sf::RenderWindow& window);
+    void SetLevel(ILevel* level);
+
+    void AddComponent(IComponent* component);
+
+    template<class T>
+    T* GetComponent()
+    {
+        auto it = mComponentsMap.find(std::type_index(typeid(T)));
+        if (it != mComponentsMap.end())
+        {
+            return static_cast<T*>(it->second);
+        }
+        return nullptr;
+    }
+    
 private:
-    std::vector<std::unique_ptr<IComponent>> mComponents;
+    ILevel* mLevel;
+    std::vector<IComponent*> mComponents;
+    std::unordered_map<std::type_index, IComponent*> mComponentsMap;
 };
 

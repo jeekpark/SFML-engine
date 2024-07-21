@@ -10,7 +10,8 @@ namespace sf
 class ILevel
 {
 public:
-    virtual void ProcessEvent(sf::Event& event) = 0;
-    virtual void Update(sf::Time deltaTime) = 0;
+    virtual ~ILevel() {};
+    virtual void ProcessEvent(const sf::Event& event) = 0;
+    virtual void Update(const sf::Time& deltaTime) = 0;
     virtual void Render(sf::RenderWindow& window) = 0;
 };

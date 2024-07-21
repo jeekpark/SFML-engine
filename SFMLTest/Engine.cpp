@@ -3,8 +3,9 @@
 #include "MainMenuLevel.h"
 
 Engine::Engine()
-    : mWindow(sf::VideoMode(1280, 720), "TEST", sf::Style::Titlebar | sf::Style::Close)
+    : mWindow(sf::VideoMode(1280U, 720U), "TEST", sf::Style::Titlebar | sf::Style::Close)
 {
+    mWindow.setFramerateLimit(60U);
     mCurrentLevel = new MainMenuLevel();
 }
 
@@ -16,6 +17,7 @@ void Engine::Run()
         sf::Time deltaTime = clock.restart();
         processEvents();
         update(deltaTime);
+        
         render();
     }
 }
